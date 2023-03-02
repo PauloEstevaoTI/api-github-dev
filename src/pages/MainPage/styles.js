@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -19,13 +20,13 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const ContainerInput = styled.form`
+export const Form = styled.form`
   display: flex;
   max-width: 583px;
   width: 100%;
 `;
 
-export const InputSearch = styled.input`
+export const Input = styled.input`
   padding: 0px 24px;
   background-color: rgba(0, 0, 0, 0.8);
   height: 64px;
@@ -39,7 +40,7 @@ export const InputSearch = styled.input`
   }
 `;
 
-export const SearchIcon = styled.button`
+export const Button = styled(Link)`
   border: 3px solid ${(props) => props.theme.colors.text};
   height: 52px;
   width: 52px;
