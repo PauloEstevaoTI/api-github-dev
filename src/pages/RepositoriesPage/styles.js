@@ -27,19 +27,6 @@ export const Back = styled(Link)`
 
 export const SectionData = styled.div``;
 
-export const ListSkills = styled.li`
-  width: 90%;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  margin-bottom: 2px;
-  background-color: ${(props) => props.theme.colors.metalDark};
-  list-style: none;
-  padding: 2px 12px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1rem;
-`;
-
 export const Main = styled.section`
   background-color: ${(props) => props.theme.colors.container};
   flex: 1;
