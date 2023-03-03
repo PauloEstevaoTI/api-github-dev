@@ -1,31 +1,17 @@
 import React, { useState } from 'react';
 import Profile from './Profile';
+import Filter from './Filter';
 
-import { Container, SideBar, Main, ListSkills } from './styles';
+import { Container, SideBar, Main } from './styles';
 
 const RepositoriesPage = () => {
-  const [user] = useState('testando');
-  const [linguages] = useState([
-    { id: 1, linguagem: 'Javascript', qtd: 5 },
-    { id: 2, linguagem: 'C', qtd: 2 },
-    { id: 3, linguagem: 'Python', qtd: 4 },
-    { id: 4, linguagem: 'React JS', qtd: 8 },
-    { id: 5, linguagem: 'React Native', qtd: 3 },
-  ]);
+  const [user] = useState('Main');
 
   return (
     <Container>
       <SideBar>
         <Profile />
-
-        <ul>
-          {linguages.map((item) => (
-            <ListSkills key={linguages.id}>
-              {item.linguagem} <span>{item.qtd}</span>
-            </ListSkills>
-          ))}
-        </ul>
-        <span>Limpar</span>
+        <Filter />
       </SideBar>
       <Main>{user}</Main>
     </Container>
