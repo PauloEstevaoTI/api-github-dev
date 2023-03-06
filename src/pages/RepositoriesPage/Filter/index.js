@@ -1,34 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Selector, Container, Cleaner } from './styles';
 
-const Filter = () => {
-  const linguages = [
-    { id: 1, linguagem: 'Javascript', qtd: 5, color: '#FF0' },
-    { id: 2, linguagem: 'C', qtd: 2, color: 'red' },
-    { id: 3, linguagem: 'Python', qtd: 4, color: 'blue' },
-    { id: 4, linguagem: 'React JS', qtd: 8, color: 'orange' },
-    { id: 5, linguagem: 'React Native', qtd: 3, color: 'purple' },
-  ];
+const Filter = ({ languages }) => (
+  <Container>
+    {languages.map((item) => (
+      <Selector key={item.name.toLowerCase()} color={item.color}>
+        <span>{item.name}</span>
+        <span>{item.count}</span>
+      </Selector>
+    ))}
+    <Cleaner>Limpar</Cleaner>
+  </Container>
+  // <ul>
+  //   {linguages.map((item) => (
+  //     <ListSkills key={linguages.id}>
+  //       {item.linguagem} <span>{item.qtd}</span>
+  //     </ListSkills>
+  //   ))}
+  // </ul>
+);
 
-  return (
-    <Container>
-      {linguages.map((item) => (
-        <Selector key={item.linguagem.toLocaleLowerCase()} color={item.color}>
-          <span>{item.linguagem}</span>
-          <span>{item.qtd}</span>
-        </Selector>
-      ))}
-      <Cleaner>Limpar</Cleaner>
-    </Container>
-    // <ul>
-    //   {linguages.map((item) => (
-    //     <ListSkills key={linguages.id}>
-    //       {item.linguagem} <span>{item.qtd}</span>
-    //     </ListSkills>
-    //   ))}
-    // </ul>
-  );
+Filter.propTypes = {
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      count: PropTypes.number.isRequired,
+      color: PropTypes.string,
+    }).isRequired
+  ).isRequired,
 };
 
 export default Filter;
