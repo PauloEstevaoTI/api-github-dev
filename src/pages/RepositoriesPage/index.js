@@ -20,36 +20,42 @@ const user = {
 
 const repositories = [
   {
+    id: 1,
     name: 'Repo 1',
     description: 'descricao',
     html_url: 'https://devsamurai.com',
     language: 'Javascript',
   },
   {
+    id: 2,
     name: 'Repo 2',
     description: 'descricao',
     html_url: 'https://devsamurai.com',
     language: 'PHP',
   },
   {
+    id: 3,
     name: 'Repo 3',
     description: 'descricao',
     html_url: 'https://devsamurai.com',
     language: 'Html',
   },
   {
+    id: 4,
     name: 'Repo 4',
     description: 'descricao',
     html_url: 'https://devsamurai.com',
     language: 'Typescript',
   },
   {
+    id: 5,
     name: 'Repo 5',
     description: 'descricao',
     html_url: 'https://devsamurai.com',
     language: 'ruby',
   },
   {
+    id: 6,
     name: 'Repo 6',
     description: 'descricao',
     html_url: 'https://devsamurai.com',
@@ -66,7 +72,7 @@ const RepositoriesPage = () => (
       <Filter languages={languages} />
     </SideBar>
     <Main>
-      <Repositories />
+      <Repositories repositories={repositories} />
     </Main>
   </Container>
 );
