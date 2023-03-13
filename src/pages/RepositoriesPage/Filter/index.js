@@ -3,24 +3,27 @@ import PropTypes from 'prop-types';
 
 import { Selector, Container, Cleaner } from './styles';
 
-const Filter = ({ languages }) => (
+const Filter = ({ languages, currentLanguage, onClick }) => (
   <Container>
     {languages.map((item) => (
-      <Selector key={item.name.toLowerCase()} color={item.color}>
+      <Selector
+        key={item.name.toLowerCase()}
+        color={item.color}
+        className={currentLanguage === item.name ? 'selected' : ''}
+        onClick={() => onClick && onClick(item.name)}
+      >
         <span>{item.name}</span>
         <span>{item.count}</span>
       </Selector>
     ))}
-    <Cleaner>Limpar</Cleaner>
+    <Cleaner onClick={() => onClick && onClick(undefined)}>Limpar</Cleaner>
   </Container>
-  // <ul>
-  //   {linguages.map((item) => (
-  //     <ListSkills key={linguages.id}>
-  //       {item.linguagem} <span>{item.qtd}</span>
-  //     </ListSkills>
-  //   ))}
-  // </ul>
 );
+
+Filter.defaultProps = {
+  currentLanguage: null,
+  onClick: null,
+};
 
 Filter.propTypes = {
   languages: PropTypes.arrayOf(
@@ -30,6 +33,8 @@ Filter.propTypes = {
       color: PropTypes.string,
     }).isRequired
   ).isRequired,
+  currentLanguage: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Filter;
